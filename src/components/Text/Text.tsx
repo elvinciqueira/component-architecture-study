@@ -1,6 +1,6 @@
-import theme from "@src/theme/theme";
 import type { ThemeTypographyVariants } from "@src/theme/theme";
 import { BaseComponent } from "@src/theme/BaseComponent";
+import { useTheme } from "@src/theme/ThemeProvider";
 
 interface TextProps {
   variant?: ThemeTypographyVariants;
@@ -15,6 +15,7 @@ export default function Text({
   tag,
   ...props
 }: TextProps) {
+  const theme = useTheme();
   const textVariant = theme.typography.variants[variant];
 
   return (
