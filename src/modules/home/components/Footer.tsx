@@ -1,10 +1,24 @@
 import { Box } from "@src/components/Box";
 import { Text } from "@src/components/Text";
+import { useTheme } from "@src/theme/ThemeProvider";
 
 export default function Footer() {
+  const theme = useTheme();
   return (
-    <Box tag="footer">
-      <Text>Footer</Text>
+    <Box
+      styleSheet={{
+        backgroundColor: theme.colors.neutral.x900,
+        color: theme.colors.neutral.x000,
+        width: "100%",
+        height: "120px",
+        paddingHorizontal: "24px",
+        paddingVertical: "24px",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      <Text variant="body2">Feito com ❤️ por Elvin Ciqueira</Text>
     </Box>
   );
 }
