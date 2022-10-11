@@ -6,7 +6,7 @@ import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
 
-export default function Home() {
+function Home(props) {
   const theme = useTheme();
   return (
     <Box
@@ -26,3 +26,7 @@ export default function Home() {
     </Box>
   );
 }
+
+export default templatePageHOC(Home, {
+  title: 'Home'
+})

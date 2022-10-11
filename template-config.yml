@@ -1,0 +1,9 @@
+site:
+  title: "Elvin Ciqueira - Timeline"
+  description: "Bem vindo a minha timeline pessoal"
+personal:
+  name: "Elvin Ciqueira"
+  avatar: "https://github.com/elvinciqueira.png"
+  socialNetworks:
+    github: "https://www.github.com/elvinciqueira"
+    linkedin: "https://www.linkedin.com/in/elvinciqueira"

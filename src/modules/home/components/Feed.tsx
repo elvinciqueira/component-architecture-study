@@ -1,8 +1,9 @@
+import { useTheme } from "@src/theme/ThemeProvider";
 import { Box } from "@src/components/Box";
 import { Button } from "@src/components/Button";
 import { Image } from "@src/components/Image";
 import { Text } from "@src/components/Text";
-import { useTheme } from "@src/theme/ThemeProvider";
+import SocialNetworkList from './SocialNetworkList';
 
 interface FeedProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export default function Feed({ children }: FeedProps) {
 
 Feed.Header = () => {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
 
   return (
     <Box
@@ -52,7 +54,7 @@ Feed.Header = () => {
             height: { xs: "100px", md: "128px" },
             borderRadius: "100%",
           }}
-          src="https://github.com/elvinciqueira.png"
+          src={templateConfig.personal.avatar}
           alt="Imagem de perfil do Elvin Ciqueira"
         />
 
@@ -92,15 +94,9 @@ Feed.Header = () => {
         </Box>
       </Box>
       <Text tag="h1" variant="heading4">
-        Elvin Ciqueira
+        {templateConfig.personal.name}
       </Text>
-
-      {/* <Link href="https://youtube.com/DevSoutinho">
-        <Icon name="youtube" />
-      </Link>
-      <Icon name="twitter" />
-      <Icon name="instagram" />
-      <Icon name="github" /> */}
+      <SocialNetworkList />
     </Box>
   );
 };
