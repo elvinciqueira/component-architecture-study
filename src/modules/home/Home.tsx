@@ -1,10 +1,10 @@
 import { Box } from "@src/components/Box";
-import { Text } from "@src/components/Text";
 import { useTheme } from "@src/theme/ThemeProvider";
 import Background from "./components/Background";
 import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
+import templatePageHOC from "@src/modules/template/templatePageHOC";
 
 function Home(props) {
   const theme = useTheme();
@@ -28,5 +28,5 @@ function Home(props) {
 }
 
 export default templatePageHOC(Home, {
-  title: 'Home'
-})
+  title: "Home",
+});

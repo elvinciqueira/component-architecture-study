@@ -3,7 +3,8 @@ import { Box } from "@src/components/Box";
 import { Button } from "@src/components/Button";
 import { Image } from "@src/components/Image";
 import { Text } from "@src/components/Text";
-import SocialNetworkList from './SocialNetworkList';
+import SocialNetworkList from "./SocialNetworkList";
+import { useTemplateConfig } from "@src/modules/template/TemplateConfigContext";
 
 interface FeedProps {
   children: React.ReactNode;
