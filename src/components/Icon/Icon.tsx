@@ -19,6 +19,7 @@ interface IconProps {
 export default function Icon({
   size = "md",
   icon = "default_icon",
+  styleSheet,
   ...props
 }: IconProps) {
   const Icon = icons[icon];
@@ -28,6 +29,7 @@ export default function Icon({
       styleSheet={{
         width: iconSizes[size],
         height: iconSizes[size],
+        ...styleSheet,
       }}
       color="inherit"
       fill="currentColor"

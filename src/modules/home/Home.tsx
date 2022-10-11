@@ -5,8 +5,15 @@ import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
 import templatePageHOC from "@src/modules/template/templatePageHOC";
+import type { Post } from "../posts/posts.client";
+import type { TemplateConfig } from "../template/withTemplateConfig";
 
-function Home(props) {
+interface HomeProps {
+  posts: Post[];
+  templateConfig: TemplateConfig;
+}
+
+function Home(props: HomeProps) {
   const theme = useTheme();
 
   console.log({ props });
@@ -24,6 +31,7 @@ function Home(props) {
       <Menu />
       <Feed>
         <Feed.Header />
+        <Feed.Posts posts={props.posts} />
       </Feed>
       <Footer />
     </Box>

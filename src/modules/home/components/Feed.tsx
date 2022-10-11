@@ -3,8 +3,11 @@ import { Box } from "@src/components/Box";
 import { Button } from "@src/components/Button";
 import { Image } from "@src/components/Image";
 import { Text } from "@src/components/Text";
-import SocialNetworkList from "./SocialNetworkList";
 import { useTemplateConfig } from "@src/modules/template/TemplateConfigContext";
+import { Link } from "@src/components/Link";
+import { Icon } from "@src/components/Icon";
+import type { Post } from "@src/modules/posts/posts.client";
+import { FeedPost } from "@src/modules/posts/components/FeedPost";
 
 interface FeedProps {
   children: React.ReactNode;
@@ -97,13 +100,43 @@ Feed.Header = () => {
       <Text tag="h1" variant="heading4">
         {templateConfig.personal.name}
       </Text>
-      <SocialNetworkList />
+      <Box
+        styleSheet={{
+          flexDirection: "row",
+          gap: "4px",
+        }}
+      >
+        {Object.keys(templateConfig.personal.socialNetworks).map((key) => {
+          const socialNetwork = templateConfig.personal.socialNetworks[key];
+          if (socialNetwork) {
+            return (
+              <Link
+                key={key}
+                target="_blank"
+                href={templateConfig.personal.socialNetworks[key]}
+              >
+                <Icon icon={key as any} />
+              </Link>
+            );
+          }
+          return null;
+        })}
+      </Box>
     </Box>
   );
 };
 
-Feed.Posts = () => (
+interface FeedPostsProps {
+  posts: Post[];
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => (
   <Box>
-    <Text>Feed Posts</Text>
+    <Text variant="heading4" styleSheet={{ marginBottom: "27px" }}>
+      Últimas Atualizações
+    </Text>
+    {posts.map(({ metadata, ...post }) => (
+      <FeedPost key={post.slug} {...post} {...metadata} />
+    ))}
   </Box>
 );
