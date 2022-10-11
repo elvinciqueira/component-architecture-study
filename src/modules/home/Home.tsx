@@ -8,6 +8,9 @@ import templatePageHOC from "@src/modules/template/templatePageHOC";
 
 function Home(props) {
   const theme = useTheme();
+
+  console.log({ props });
+
   return (
     <Box
       tag="main"
