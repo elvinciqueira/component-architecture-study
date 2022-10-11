@@ -15,9 +15,6 @@ interface HomeProps {
 
 function Home(props: HomeProps) {
   const theme = useTheme();
-
-  console.log({ props });
-
   return (
     <Box
       tag="main"
